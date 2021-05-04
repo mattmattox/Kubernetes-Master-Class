@@ -9,8 +9,7 @@
   - Running Docker [Install Script](https://github.com/rancher/install-docker)
 - Edit the cluster.yml to include your node IPs
   ```
-  cd ./01-etcd-split-brain
-  ./cluster.yml
+  vi ./cluster.yml
   ```
 - Stand up the cluster
   ```
