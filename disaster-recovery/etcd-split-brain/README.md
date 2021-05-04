@@ -42,8 +42,8 @@
   ```
   ```
   15de45eddfe271bb, started, etcd-a1ublabat03, https://172.27.5.33:2380, https://172.27.5.33:2379, false
-1d6ed2e3fa3a12e1, started, etcd-a1ublabat02, https://172.27.5.32:2380, https://172.27.5.32:2379, false
-68d49b1389cdfca0, started, etcd-a1ublabat01, https://172.27.5.31:2380, https://172.27.5.31:2379, false
+  1d6ed2e3fa3a12e1, started, etcd-a1ublabat02, https://172.27.5.32:2380, https://172.27.5.32:2379, false
+  68d49b1389cdfca0, started, etcd-a1ublabat01, https://172.27.5.31:2380, https://172.27.5.31:2379, false
   ```
 - Endpoint health
   ```
