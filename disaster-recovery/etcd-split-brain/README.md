@@ -1,9 +1,8 @@
 # Recovering from an etcd split-brain
-```
 <p align="center">
   <img src="banner.png">
 </p>
-```
+
 ## Reproducing in a lab
 - Prerequisites
   - [Latest RKE](https://github.com/rancher/rke/releases/tag/v1.2.7)
