@@ -34,7 +34,9 @@
   docker logs --tail 100 -f etcd
   ```
   ```
-  2021-05-04 21:27:11.856471 E | rafthttp: request sent was ignored (cluster ID mismatch: peer[bc5babcd42042800]=a8977fad6ef90f15, local=38cf28018b4788e7)
+  2021-05-04 07:50:10.140405 E | rafthttp: request cluster ID mismatch (got ecdd18d533c7bdc3 want a0b4701215acdc84)
+  2021-05-04 07:50:10.142212 E | rafthttp: request sent was ignored (cluster ID mismatch: peer[fa573fde1c0b9eb9]=ecdd18d533c7bdc3, local=a0b4701215acdc84)
+  2021-05-04 07:50:10.155090 E | rafthttp: request sent was ignored (cluster ID mismatch: peer[fa573fde1c0b9eb9]=ecdd18d533c7bdc3, local=a0b4701215acdc84)
   ```
 - Unhealthy members in etcd cluster
   ```

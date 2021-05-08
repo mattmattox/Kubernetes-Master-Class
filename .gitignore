@@ -1,2 +1,3 @@
 disaster-recovery/etcd-split-brain/cluster.rkestate
 disaster-recovery/etcd-split-brain/kube_config_cluster.yml
+disaster-recovery/etcd-split-brain/random-*

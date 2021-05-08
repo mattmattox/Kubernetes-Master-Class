@@ -24,3 +24,5 @@ services:
       enabled: true
       interval_hours: 12
       retention: 6
+
+kubernetes_version: v1.16.9-rancher1-1
