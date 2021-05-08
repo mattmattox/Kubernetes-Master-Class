@@ -26,5 +26,5 @@ Everything breaks at some point; whether it is infrastructure (DNS, network, sto
 - [Restoring service after power outage](./complete-power-outage)
 - [Pods not being scheduled with OPA Gatekeeper](./broken-opa-gatekeeper)
 - [Run away App stomping all over a cluster](./run-away-app)
-- [When all your tokens stop working](./broken-tokens)
+- [Rotating kube-ca breaks pods](./broken-kube-ca)
 - [Namespace stuck in terminating](./namespace-stuck-terminating)
