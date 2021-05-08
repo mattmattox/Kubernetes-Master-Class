@@ -22,9 +22,9 @@ Everything breaks at some point; whether it is infrastructure (DNS, network, sto
 
 ## Common Scenarios
 - [Recovering from an etcd split-brain](./etcd-split-brain)
-- Rebuilding a cluster from scratch
-- Restoring service after power outage
-- Run away App stomping all over a cluster
-- Pods not being scheduled with OPA Gatekeeper
-- When all your tokens stop working
-- Namespace stuck in terminating
+- [Rebuilding a cluster from scratch](./rebuild-from-scratch)
+- [Restoring service after power outage](./complete-power-outage)
+- [Pods not being scheduled with OPA Gatekeeper](./broken-opa-gatekeeper)
+- [Run away App stomping all over a cluster](./run-away-app)
+- [When all your tokens stop working](./broken-tokens)
+- [Namespace stuck in terminating](./namespace-stuck-terminating)
