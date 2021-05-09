@@ -1,0 +1,48 @@
+nodes:
+  - address: 172.27.5.41
+    internal_address: 172.27.5.41
+    user: root
+    hostname_override: a1ublabbt01
+    role: [controlplane,worker,etcd]
+  - address: 172.27.5.42
+    internal_address: 172.27.5.42
+    user: root
+    hostname_override: a1ublabbt02
+    role: [controlplane,worker,etcd]
+  - address: 172.27.5.43
+    internal_address: 172.27.5.43
+    user: root
+    hostname_override: a1ublabbt03
+    role: [controlplane,worker,etcd]
+  # - address: 172.27.5.44
+  #   internal_address: 172.27.5.44
+  #   user: root
+  #   hostname_override: a1ublabbt04
+  #   role: [controlplane,worker,etcd]
+  # - address: 172.27.5.45
+  #   internal_address: 172.27.5.45
+  #   user: root
+  #   hostname_override: a1ublabbt05
+  #   role: [controlplane,worker,etcd]
+  # - address: 172.27.5.46
+  #   internal_address: 172.27.5.46
+  #   user: root
+  #   hostname_override: a1ublabbt06
+  #   role: [controlplane,worker,etcd]
+
+ingress:
+  provider: nginx
+
+services:
+  etcd:
+    backup_config:
+      enabled: true
+      interval_hours: 1
+      retention: 72
+      s3backupconfig:
+        access_key: "ABCDE"
+        secret_key:  "123456789"
+        bucket_name: "etcd"
+        folder: "cluster-B"
+        endpoint: "s3.example.com"
+        region: "us-west-1"

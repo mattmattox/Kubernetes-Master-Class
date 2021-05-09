@@ -4,3 +4,6 @@ disaster-recovery/broken-opa-gatekeeper/cluster.rkestate
 disaster-recovery/broken-opa-gatekeeper/kube_config_cluster.yml
 disaster-recovery/broken-kube-ca/cluster.rkestate
 disaster-recovery/broken-kube-ca/kube_config_cluster.yml
+disaster-recovery/rebuild-from-scratch/cluster.rkestate
+disaster-recovery/rebuild-from-scratch/kube_config_cluster.yml
+disaster-recovery/rebuild-from-scratch/cluster.yml_mod
