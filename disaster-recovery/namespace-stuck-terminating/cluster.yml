@@ -1,0 +1,26 @@
+nodes:
+  - address: 172.27.5.81
+    internal_address: 172.27.5.81
+    user: root
+    hostname_override: a1ublabft01
+    role: [controlplane,worker,etcd]
+  - address: 172.27.5.82
+    internal_address: 172.27.5.82
+    user: root
+    hostname_override: a1ublabft02
+    role: [controlplane,worker,etcd]
+  - address: 172.27.5.83
+    internal_address: 172.27.5.83
+    user: root
+    hostname_override: a1ublabft03
+    role: [controlplane,worker,etcd]
+
+ingress:
+  provider: nginx
+
+services:
+  etcd:
+    backup_config:
+      enabled: true
+      interval_hours: 1
+      retention: 72

@@ -9,3 +9,5 @@ disaster-recovery/rebuild-from-scratch/kube_config_cluster.yml
 disaster-recovery/rebuild-from-scratch/cluster.yml_mod
 disaster-recovery/complete-power-outage/cluster.rkestate
 disaster-recovery/complete-power-outage/kube_config_cluster.yml
+disaster-recovery/namespace-stuck-terminating/cluster.rkestate
+disaster-recovery/namespace-stuck-terminating/kube_config_cluster.yml
