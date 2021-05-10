@@ -11,3 +11,5 @@ disaster-recovery/complete-power-outage/cluster.rkestate
 disaster-recovery/complete-power-outage/kube_config_cluster.yml
 disaster-recovery/namespace-stuck-terminating/cluster.rkestate
 disaster-recovery/namespace-stuck-terminating/kube_config_cluster.yml
+disaster-recovery/run-away-app/cluster.rkestate
+disaster-recovery/run-away-app/kube_config_cluster.yml
