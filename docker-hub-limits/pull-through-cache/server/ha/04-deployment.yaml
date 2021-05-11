@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pull-through-cache
+  namespace: pull-through
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: CACHE_MAX_SIZE
+          value: 100g
+        - name: ENABLE_MANIFEST_CACHE
+          value: "true"
+        - name: REGISTRIES
+          value: k8s.gcr.io gcr.io quay.io
+        - name: AUTH_REGISTRIES
+          valueFrom:
+            secretKeyRef:
+              key: AUTH_REGISTRIES
+              name: pull-through
+        image: rpardini/docker-registry-proxy:latest
+        imagePullPolicy: IfNotPresent
+        name: pull-through-cache-node
+        ports:
+        - containerPort: 3128
+          hostPort: 3128
+          name: proxy
+          protocol: TCP
+        tty: true
+        volumeMounts:
+        - mountPath: /docker_mirror_cache
+          name: pull-through-cache
+          subPath: data
+        - mountPath: /ca
+          name: pull-through-cache
+          subPath: certs
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: pull-through-cache
+        persistentVolumeClaim:
+          claimName: pull-through-cache

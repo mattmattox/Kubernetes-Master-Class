@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: private-registry
+  namespace: private-registry
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: registry:2
+        imagePullPolicy: IfNotPresent
+        name: private-registry
+        volumeMounts:
+        - mountPath: /var/lib/registry
+          name: private-registry
+        - mountPath: /etc/docker/registry
+          name: config
+        - mountPath: /auth
+          name: htpasswd
+      volumes:
+      - name: private-registry
+        persistentVolumeClaim:
+          claimName: private-registry
+      - configMap:
+          defaultMode: 256
+          items:
+          - key: registry-config.yml
+            path: config.yml
+          name: docker-registry
+          optional: false
+        name: config
+      - name: htpasswd
+        secret:
+          defaultMode: 256
+          items:
+          - key: HTPASSWD
+            path: htpasswd
+          optional: false
+          secretName: private-registry
