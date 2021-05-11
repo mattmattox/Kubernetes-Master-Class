@@ -10,4 +10,3 @@ echo "Node: $node"
 ssh -q -o StrictHostKeyChecking=no -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null root@"$node" 'echo "Member list"; docker exec etcd etcdctl member list; echo "Endpoint health"; docker exec etcd etcdctl endpoint health'
 sleep 5
 done
-

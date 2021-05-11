@@ -3,6 +3,9 @@
   <img src="banner.png">
 </p>
 
+## What is an etcd split-brain?
+Etcd is a leader-based distributed system. Ensure that the leader periodically sends heartbeats on time to all followers to keep the cluster stable. Etcd requires a majority of nodes to up and healthy to accept writes. If the cluster ever lost a quorum, it will go into read-only mode until a quorum is restored.
+
 ## Reproducing in a lab
 - Prerequisites
   - [Latest RKE](https://github.com/rancher/rke/releases/tag/v1.2.7)
@@ -68,5 +71,8 @@ rke up --config cluster.yml
 
 ## Preventive tasks
 - If hosted in VMware, use VM Anti-Affinity rules to make sure etcd nodes are hosted on different ESXi hosts. [VMware KB](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html)
-- If hosted in a cloud provider like AWS use differnet availability zones for each. Example: etcd1 in us-west-2a, etcd2 in us-west-2b, etc.
+- If hosted in a cloud provider like AWS, use different availability zones for each. Example: etcd1 in us-west-2a, etcd2 in us-west-2b, etc.
 - Only apply patching in a rolling fashion. Example [script](rolling_reboot.sh)
+
+## Documention
+- [etcd offical doc](https://etcd.io/docs/v3.4/op-guide/failures/)
