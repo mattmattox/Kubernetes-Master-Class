@@ -22,7 +22,7 @@ Everything breaks at some point; whether it is infrastructure (DNS, network, sto
 
 ## Common Scenarios
 - [Recovering from an etcd split-brain](./etcd-split-brain)
-- [Rebuilding a cluster from scratch](./rebuild-from-scratch)
+- [Rebuilding from etcd backup](./rebuild-from-scratch)
 - [Restoring service after power outage](./complete-power-outage)
 - [Pods not being scheduled with OPA Gatekeeper](./broken-opa-gatekeeper)
 - [Run away App stomping all over a cluster](./run-away-app)

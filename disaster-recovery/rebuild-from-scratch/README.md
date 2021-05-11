@@ -1,4 +1,7 @@
-# Rebuilding from scratch
+# Rebuilding from etcd backup
+
+## When would I need to rebuild from an etcd backup?
+Kuberentes uses etcd for storing the all of cluster data including deployments, secrets, configmap, etc. RKE allows us to take an etcd backup and rebuild a cluster using the backup to seed the data inside the cluster. Then is very helpful for disaster situation like a large scale storage outage or accidental deletion for cluster.
 
 ## Reproducing in a lab
 - Prerequisites
