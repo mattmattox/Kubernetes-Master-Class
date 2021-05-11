@@ -1,5 +1,4 @@
 # Kubernetes-Master-Class
-Kubernetes Master Class
 
 ## Kubernetes Master Class: Recovering from a disaster with Rancher and Kubernetes
 Recover, Restore and Rebuild:​ Disaster Recovery with Rancher and Kubernetes​
