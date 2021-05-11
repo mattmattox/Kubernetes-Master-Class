@@ -13,8 +13,12 @@ do
   sleep 1
 done
 
+echo "Creating namespace..."
+kubectl create ns swiss-army-knife
+
 echo "Deploying test workload..."
-kubectl apply -f deployment-default-sa.yaml
+kubectl apply -f deployment-custom-sa.yaml
+#kubectl apply -f deployment-default-sa.yaml
 
 echo "Waiting for deployment to completely start..."
-kubectl rollout status deploy/swiss-army-knife
+kubectl -n swiss-army-knife rollout status deploy/swiss-army-knife

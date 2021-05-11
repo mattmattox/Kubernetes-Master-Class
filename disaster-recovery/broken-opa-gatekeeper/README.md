@@ -68,7 +68,7 @@
   ```
   kubectl get ValidatingWebhookConfiguration gatekeeper-validating-webhook-configuration -o yaml | sed 's/failurePolicy.*/failurePolicy: Ignore/g' | kubectl apply -f -
   ```
-- If open policy doesn't work, remove all Gatekeeper admission checks.
+- If an open policy doesn't work, remove all Gatekeeper admission checks.
   ```
   kubectl delete validatingwebhookconfigurations.admissionregistration.k8s.io gatekeeper-validating-webhook-configuration
   ```

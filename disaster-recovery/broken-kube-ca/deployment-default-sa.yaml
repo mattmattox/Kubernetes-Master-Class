@@ -5,7 +5,7 @@ metadata:
   labels:
     app: swiss-army-knife
   name: swiss-army-knife
-  namespace: kube-system
+  namespace: swiss-army-knife
 spec:
   replicas: 1
   selector:
