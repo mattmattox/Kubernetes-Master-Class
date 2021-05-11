@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: single-node-mysql
+  namespace: single-node-mysql
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: single-node-mysql
+  clusterIP: None

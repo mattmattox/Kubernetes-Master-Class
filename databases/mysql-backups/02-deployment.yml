@@ -1,0 +1,36 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mysql-backup
+  namespace: mariadb-galera
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - env:
+            - name: MYSQL_ENV_DB_HOST
+              value: mariadb-galera
+            - name: MYSQL_ENV_DB_USER
+              value: root
+            - name: MYSQL_ENV_DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  key: mariadb-root-password
+                  name: mariadb-galera
+                  optional: false
+            image: cube8021/mysql-backups:v0.0.4
+            imagePullPolicy: IfNotPresent
+            name: mysqldump
+            volumeMounts:
+            - name: mysql-backup
+              mountPath: /mysqldump
+          volumes:
+          - name: mysql-backup
+            persistentVolumeClaim:
+              claimName: mysql-backup-pvc
+          restartPolicy: Never
+  schedule: 0 * * * *
