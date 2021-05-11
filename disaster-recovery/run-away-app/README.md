@@ -1,5 +1,10 @@
 # Run away App stomping all over a cluster
 
+## How can a single app bring down my cluster?
+Suppose an application was deployed without CPU and Memory limits. The pod can use so much of a node's resources that the node becomes unresponsive. After 5 mins (default), the kube-scheduler will start rescheduling the pods running on that node to another node. This will, in turn, break that node, and this process will repeat until all nodes are broken.
+
+NOTE: Most of the time, the node will crash and self-recover, so you'll only see nodes flipping as the pods bounce between nodes.
+
 ## Reproducing in a lab
 - Prerequisites
   - [Latest RKE](https://github.com/rancher/rke/releases/tag/v1.2.7)
@@ -45,7 +50,7 @@
   ```
 
 ## Troubleshooting
-- SSH into the node(s) in question and run `top`, if the node is swapping it's going to crash
+- SSH into the node(s) in question and run `top`, if the node is swapping, it's going to crash
   ```
   ```
   root@a1ublabgt01:~# top
@@ -57,7 +62,7 @@
       PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
       91 root      20   0       0      0      0 R  37.9   0.0   0:51.69 [kswapd0]
   ```
-- Try running `docker stats` to find the containter that is using up all the resources.
+- Try running `docker stats` to find the container that is using up all the resources.
 
 ## Restoring/Recovering
 - Scale the deployment to zero

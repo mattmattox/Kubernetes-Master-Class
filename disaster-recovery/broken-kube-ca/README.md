@@ -1,5 +1,8 @@
 # Rotating kube-ca breaks pods
 
+## What is kube-ca, and how can it break my cluster?
+Kubernetes uses SSL certificates are all of its services. TLS certificates need certificate authorities' "CAs" work. In this case, kube-ca is a root certificate authority created as part of building the cluster. RKE then creates key pairs for kube-apiserver, etcd, kube-scheduler, etc., and signs them uses kube-ca. This also includes service accounts tokens which are signed by kube-service-account-token. This means that if that chain is broken. kubectl and related services will do the safest option and block the connection.
+
 ## Reproducing in a lab
 - Prerequisites
   - [Latest RKE](https://github.com/rancher/rke/releases/tag/v1.2.7)
@@ -37,15 +40,15 @@
 
 ## Troubleshooting
 - Does adding `--insecure-skip-tls-verify` to `kubectl` from inside a pod work?
-- See if the file kube-ca.pem is newer then the cert files.
+- See if the file kube-ca.pem is newer than the cert files.
   ```
   ls -l /etc/kubernetes/ssl/
   ```
-- If kube-ca have been rotated and/or been re-created all the rest of the certificates that it based on are going to be broken. This also breaks k8s tokens because they are based off these certificates.
+- If kube-ca has been rotated or been re-created, all the rest of the certificates that it is based on will be broken. This also breaks k8s tokens because they are based on these certificates.
 
 
 ## Restoring/Recovering
-- Try forcing a cert rotate using RKE.
+- Try forcing a cert rotation using RKE.
   ```
   rke cert rotate --rotate-ca --config cluster.yml
   ```
@@ -59,5 +62,4 @@
   ```
 
 ## Preventive tasks
-- Changing the failure policy to fail open. [Doc](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed)
-- [Offical OPA Gatekeeper Emergency Recovery](https://open-policy-agent.github.io/gatekeeper/website/docs/emergency)
+- [How Kubernetes certificates work](https://jvns.ca/blog/2017/08/05/how-kubernetes-certificates-work/)

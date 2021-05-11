@@ -1,7 +1,11 @@
-# OPA Gatekeeper breaking pod scheduling
+# Pods not being scheduled with OPA Gatekeeper​
 <p align="center">
   <img src="banner.png">
 </p>
+
+## How can OPA Gatekeeper break my cluster?
+Gatekeeper uses [validatingwebhookconfigurations](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) to screen updates request being sent to kube-apiserver to verify they pass Gatekeep's checks. If OPA Gatekeeper is down, these requests will fail, which will break the kube-scheduler because all the update requests will be blocked.
+NOTE: OPA Gatekeeper can be set to fail open IE if OPA Gatekeeper is down; assume it would have been approved and move forward.
 
 ## Reproducing in a lab
 - Prerequisites
@@ -37,7 +41,7 @@
   ```
   2021-05-08T04:44:41.406070907Z E0508 04:44:41.405968       1 leaderelection.go:361] Failed to update lock: Internal error occurred: failed calling webhook "validation.gatekeeper.sh": Post "https://gatekeeper-webhook-service.gatekeeper-system.svc:443/v1/admit?timeout=3s": dial tcp 10.43.104.236:443: connect: connection refused
   ```
-- The deployment will show as out-of-spec but `kubectl get pods` won't show any errors.
+- The deployment will show as out-of-spec, but `kubectl get pods` won't show any errors.
   ```
   kubectl get deployment/hello-world
   kubectl get pods -l app=hello-world
