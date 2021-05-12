@@ -1,5 +1,7 @@
 # Kubernetes-Master-Class
 
+---
+
 ## Kubernetes Master Class: Recovering from a disaster with Rancher and Kubernetes
 Recover, Restore and Rebuild:​ Disaster Recovery with Rancher and Kubernetes​
 
@@ -7,6 +9,7 @@ Everything breaks at some point; whether it is infrastructure (DNS, network, sto
 
 [Link](./disaster-recovery)
 
+---
 
 ## Kubernetes Master Class: A Seamless Approach to Rancher and Kubernetes Upgrades
 
@@ -23,6 +26,9 @@ Agenda:
 
 [Link](./rancher-k8s-upgrades)
 
+---
+
+
 ## Kubernetes Master Class: Addressing the Amount of Pull Requests in Rancher
 
 In this master class Support Engineer Matthew Mattox will address the new Docker Hub limits and how to reduce the number of pull requests made against Docker Hub. We will go over different options including building a full registry mirror, and using the standard registry, including the required maintenance tasks, to use a pull-through-cache registry. We will also cover some Enterprise solutions (e.g. JFrog) along with how to reduce the number of pulls while using Docker Hub.
@@ -36,6 +42,8 @@ Agenda:
 
 [Link](./docker-hub-limits)
 
+---
+
 ## Kubernetes Master Class: How to Run Databases in Production on Kubernetes
 Databases are business-critical entities and data loss leads to major operational risk scenarios in any organization. A single operational or architectural failure can lead to significant loss of time and resources. This class will provide a real-world view into the challenges of maintaining state and running databases in production and show solutions managed by Rancher.
 
@@ -44,6 +52,8 @@ In this session, Rancher Engineer Matt Mattox will discuss and demo:
 - How to respond to common operational scenarios like node failure, disk out of space, and restore from snapshots
 
 [Link](./databases)
+
+---
 
 ## Kubernetes Master Class: Troubleshooting Kubernetes
 Everything breaks at some point, wether it is infrastructure (DNS, network etc) or Kubernetes itself, something will break eventually. In this session we will walk through the master components of Kubernetes, how they interact and how to troubleshoot the most common issues with Kubernetes. What parameters to use, what commands to run, how to interpret output from logging or commands are things that we will show you.
