@@ -26,7 +26,7 @@ Please see the following recommendations when planning version upgrades.
 For example: when upgrading from v2.1.x -> v2.3.x. We encourage upgrading v2.1.x -> v2.2.x -> v2.3.x but this is not required.
 - **Kubernetes**: perform no more than two minor versions at a time, ideally avoid skipping minor versions entirely as this can increase the chances of an issue due to accumulated changes
 For example: when upgrading from v1.13.x -> v1.19.x we encourage upgrading v1.13.x -> v1.15.x -> v1.17.x -> v1.19.x
-- **RKE**: perform one major RKE versions jump at a time
+- **RKE**: perform one minor RKE versions jump at a time
 For example: when upgrading from v0.1.x -> v1.1.0 instead do v0.1.x -> v0.2.x -> v.0.3.x -> v1.0.x -> v1.1.x
 
 
